@@ -46,13 +46,6 @@ int mytestfn2(float a, int x1, int x2, int x3, int x4, int x5, int x6, int x7, u
 	return a + b;
 }
 
-using MsgBoxFnCall = int (WINAPI*)(
-	_In_opt_ HWND hWnd,
-	_In_opt_ LPCSTR lpText,
-	_In_opt_ LPCSTR lpCaption,
-	_In_ UINT uType);
-
-
 class Assembler {
 
 	void* mem = VirtualAlloc(NULL, 40, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
