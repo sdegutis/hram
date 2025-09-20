@@ -30,10 +30,13 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, PWSTR pCmdLine, in
 	setupMemory();
 	setupMainProg();
 	setupUserProg();
-	//openConsole();
+	openConsole();
 	loadUserCodeFromDisk();
 	setupWindow(hInstance, nCmdShow);
 	reloadUserScript();
+
+	my_test_fn();
+
 	runLoop();
 	return 0;
 }
