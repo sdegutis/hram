@@ -13,7 +13,7 @@
 #include "my_file.h"
 
 
-#define APP_VERSION (100)
+#define APP_VERSION (103)
 
 static void openConsole();
 static void checkLicense();
@@ -30,7 +30,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, PWSTR pCmdLine, in
 	setupMemory();
 	setupMainProg();
 	setupUserProg();
-	openConsole();
+	//openConsole();
 	loadUserCodeFromDisk();
 	setupWindow(hInstance, nCmdShow);
 	reloadUserScript();
