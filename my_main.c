@@ -35,7 +35,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, PWSTR pCmdLine, in
 	setupWindow(hInstance, nCmdShow);
 	reloadUserScript();
 
-	my_test_fn();
+	//my_test_fn();
 
 	runLoop();
 	return 0;
