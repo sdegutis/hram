@@ -70,11 +70,14 @@ void loadUserCodeFromDisk() {
 	watcher = FindFirstChangeNotificationW(userfile, FALSE, FILE_NOTIFY_CHANGE_LAST_WRITE);
 
 	PathAppendW(userfile, L"hsig.s");
-	file = CreateFileW(userfile, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+	file = CreateFileW(userfile, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
 	if (GetLastError() != ERROR_ALREADY_EXISTS) {
 		DWORD written;
-		WriteFile(file, src, sizeof(src) - 1, &written, NULL);
+		BOOL good = WriteFile(file, src, sizeof(src) - 1, &written, NULL);
+		if (!good) {
+			DWORD err = GetLastError();
+		}
 		StringCchCopyA(sys->progsrc, sizeof(src), src);
 	}
 
